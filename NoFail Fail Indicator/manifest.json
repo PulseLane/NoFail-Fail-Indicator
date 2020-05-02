@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/nike4613/ModSaber-MetadataFileSchema/master/Schema.json",
+  "author": "PulseLane",
+  "description": "Shows the \"Level Failed\" text when you would have normally failed a level while NoFail is enabled",
+  "gameVersion": "1.8.0",
+  "id": "NoFail_Fail_Indicator",
+  "name": "NoFail Fail Indicator",
+  "version": "0.5.0-beta",
+  "dependsOn": {
+    "BS Utils": "^1.4.8"
+  },
+  "features": [],
+  "links": {
+    "project-source": "https://github.com/PulseLane/NoFail-Fail-Indicator"
+  }
+}
