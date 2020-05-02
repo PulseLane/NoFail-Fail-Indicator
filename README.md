@@ -1,4 +1,4 @@
-# NoFail-Fail-Indicator
+# NoFail Fail Indicator
 Beat Saber mod that shows when you would have normally failed a level if "No fail" is on
 
 To Fix
