@@ -27,7 +27,7 @@ namespace NoFail_Fail_Indicator
             try
             {
                 harmony.PatchAll(System.Reflection.Assembly.GetExecutingAssembly());
-                Logger.Log(":)");
+                Logger.Log("Successfully applied harmony patches!");
             } catch (Exception ex)
             {
                 Logger.Log($"Failed to apply harmony patches! {ex}");
@@ -40,12 +40,13 @@ namespace NoFail_Fail_Indicator
         public void OnDisable()
         {
             harmony.UnpatchAll("com.PulseLane.BeatSaber.NoFail_Fail_Indicator");
+            BS_Utils.Utilities.BSEvents.gameSceneLoaded -= OnGameSceneLoaded;
         }
 
 
         private void OnGameSceneLoaded()
         {
-            new GameObject("NoFail_Fail_Indicator").AddComponent<Indicator>();
+            new GameObject("NoFail_Fail_Indicator").AddComponent<FailIndicator>();
         }
     }
 }

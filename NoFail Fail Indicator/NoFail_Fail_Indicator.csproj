@@ -57,9 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HarmonyPatches\GameEnergyCounterAddEnergy.cs" />
-    <Compile Include="HarmonyPatches\MissionLevelGameplayManagerHandleGameEnergyDidReach0.cs" />
-    <Compile Include="HarmonyPatches\StandardLevelGameplayManagerHandleGameEnergyDidReach0.cs" />
-    <Compile Include="Indicator.cs" />
+    <Compile Include="FailIndicator.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="PluginConfig.cs" />
