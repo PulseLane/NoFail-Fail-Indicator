@@ -14,6 +14,7 @@ namespace NoFail_Fail_Indicator
         protected GameEnergyCounter _gameEnergyCounter;
         protected LevelFailedTextEffect _levelFailedTextEffect;
         protected float _energy;
+        protected float _effectTime;
         protected bool _hasFailed = false;
 
         public void Awake()
@@ -22,6 +23,7 @@ namespace NoFail_Fail_Indicator
             _gameEnergyCounter = Resources.FindObjectsOfTypeAll<GameEnergyCounter>().FirstOrDefault();
             _levelFailedTextEffect = Resources.FindObjectsOfTypeAll<LevelFailedTextEffect>().FirstOrDefault();
             _energy = _gameEnergyCounter.energy;
+            _effectTime = Config.effectTime;
         }
 
         public bool GetNoFail()
@@ -62,7 +64,7 @@ namespace NoFail_Fail_Indicator
         private IEnumerator ShowLevelFailedCoroutine()
         {
             _levelFailedTextEffect.ShowEffect();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(_effectTime);
             _levelFailedTextEffect.gameObject.SetActive(false);
             yield break;
         }

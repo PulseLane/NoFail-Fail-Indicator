@@ -35,8 +35,15 @@
     <Reference Include="0Harmony">
       <HintPath>E:\Steam\steamapps\common\Beat Saber\Libs\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="BSML">
+      <HintPath>E:\Steam\steamapps\common\Beat Saber\Plugins\BSML.dll</HintPath>
+    </Reference>
     <Reference Include="BS_Utils">
       <HintPath>E:\Steam\steamapps\common\Beat Saber\Plugins\BS_Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="HMLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\HMLib.dll</HintPath>
     </Reference>
     <Reference Include="IPA.Loader">
       <HintPath>E:\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\IPA.Loader.dll</HintPath>
@@ -56,15 +63,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="HarmonyPatches\GameEnergyCounterAddEnergy.cs" />
     <Compile Include="FailIndicator.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="PluginConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\settings.bsml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

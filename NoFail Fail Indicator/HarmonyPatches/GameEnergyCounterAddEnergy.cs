@@ -14,7 +14,7 @@ namespace NoFail_Fail_Indicator.HarmonyPatches
         static void Prefix(float value)
         {
 
-            if (FailIndicator.instance.GetNoFail())
+            if (Config.enabled && FailIndicator.instance.GetNoFail())
             {
                 FailIndicator.instance.AddEnergy(value);
             }

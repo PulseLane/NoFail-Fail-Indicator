@@ -1,0 +1,4 @@
+﻿<settings-container>
+  <checkbox text='Enabled' value='enabled'></checkbox>
+  <increment-setting text='Failure Indicator duration' value='effectTime' hover-hint='How long the "Level Failed" effect shows for' min='1' max='10' increment='0.5'></increment-setting>
+</settings-container>

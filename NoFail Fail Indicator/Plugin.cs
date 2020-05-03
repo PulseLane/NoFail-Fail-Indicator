@@ -1,7 +1,9 @@
-﻿using HarmonyLib;
+﻿using BeatSaberMarkupLanguage.Settings;
+using HarmonyLib;
 using IPA;
 using IPA.Config;
 using IPA.Utilities;
+using NoFail_Fail_Indicator.UI;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,17 +25,18 @@ namespace NoFail_Fail_Indicator
         [OnEnable]
         public void OnEnable()
         {
+            Config.Read();
             harmony = new Harmony("com.PulseLane.BeatSaber.NoFail_Fail_Indicator");
             try
             {
                 harmony.PatchAll(System.Reflection.Assembly.GetExecutingAssembly());
-                Logger.Log("Successfully applied harmony patches!");
             } catch (Exception ex)
             {
-                Logger.Log($"Failed to apply harmony patches! {ex}");
+                Logger.log.Error($"Failed to apply harmony patches! {ex}");
             }
 
             BS_Utils.Utilities.BSEvents.gameSceneLoaded += OnGameSceneLoaded;
+            BSMLSettings.instance.AddSettingsMenu("NoFail Fail Indicator", "NoFail_Fail_Indicator.UI.settings.bsml", Settings.instance);
         }
 
         [OnDisable]
@@ -41,12 +44,14 @@ namespace NoFail_Fail_Indicator
         {
             harmony.UnpatchAll("com.PulseLane.BeatSaber.NoFail_Fail_Indicator");
             BS_Utils.Utilities.BSEvents.gameSceneLoaded -= OnGameSceneLoaded;
+            BSMLSettings.instance.RemoveSettingsMenu(Settings.instance);
         }
 
 
         private void OnGameSceneLoaded()
         {
-            new GameObject("NoFail_Fail_Indicator").AddComponent<FailIndicator>();
+            if (Config.enabled)
+                new GameObject("NoFail_Fail_Indicator").AddComponent<FailIndicator>();
         }
     }
 }
