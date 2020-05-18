@@ -22,7 +22,8 @@ namespace NoFail_Fail_Indicator
             instance = this;
             _gameEnergyCounter = Resources.FindObjectsOfTypeAll<GameEnergyCounter>().FirstOrDefault();
             _levelFailedTextEffect = Resources.FindObjectsOfTypeAll<LevelFailedTextEffect>().FirstOrDefault();
-            _energy = _gameEnergyCounter.energy;
+            // Just set to 0.5 - looks like energy in _gameEnergyCounter is not yet initialized
+            _energy = 0.5f;
             _effectTime = Config.effectTime;
         }
 
